@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  destination:
+    name: ''  # Você pode deixar vazio para usar o cluster padrão
+    namespace: default  # Substitua pelo namespace desejado, como "default" ou outro
+    server: https://kubernetes.default.svc  # Use o servidor padrão do Kubernetes
+  source:
+    path: k8s  # O caminho onde estão os manifests no repositório
+    repoURL: https://github.com/caiohmb/kuber_project.git  # URL do repositório Git
+    targetRevision: HEAD  # A branch que você quer usar
+  project: default  # O projeto do Argo CD; pode ser 'default' se não tiver projetos customizados
+syncPolicy:
+  syncOptions:
+  - CreateNamespace=true
+  automated:
+    selfHeal: true
+    prune: true
