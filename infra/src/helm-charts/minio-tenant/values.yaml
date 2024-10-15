@@ -246,20 +246,19 @@ tenant:
 
 ingress:
   api:
-    enabled: false
+    enabled: true
     ingressClassName: ""
     labels: { }
     annotations: { }
-    tls: [ ]
     host: minio.local
     path: /
     pathType: Prefix
   console:
-    enabled: false
+    enabled: true
     ingressClassName: ""
     labels: { }
     annotations: { }
-    tls: [ ]
     host: minio-console.local
     path: /
     pathType: Prefix
+
