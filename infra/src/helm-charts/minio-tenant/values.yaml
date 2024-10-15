@@ -247,19 +247,20 @@ tenant:
 ingress:
   api:
     enabled: true
-    ingressClassName: "nginx"  # Substitua "nginx" pela sua classe de Ingress, se necessário
+    ingressClassName: "nginx"  # Certifique-se de que essa classe de Ingress exista no seu cluster
     labels: { }
     annotations: { }
-    host: minio.local
+    host: minio.local  # Host para o serviço MinIO
     path: /
     pathType: Prefix
   console:
     enabled: true
-    ingressClassName: "nginx"  # Substitua "nginx" pela sua classe de Ingress, se necessário
+    ingressClassName: "nginx"  # Certifique-se de que essa classe de Ingress exista no seu cluster
     labels: { }
     annotations: { }
-    host: minio-console.local
+    host: minio-console.local  # Host para o console do MinIO
     path: /
     pathType: Prefix
+
 
 
