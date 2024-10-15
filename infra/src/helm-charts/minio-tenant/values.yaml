@@ -247,7 +247,7 @@ tenant:
 ingress:
   api:
     enabled: true
-    ingressClassName: ""
+    ingressClassName: "nginx"  # Substitua "nginx" pela sua classe de Ingress, se necessário
     labels: { }
     annotations: { }
     host: minio.local
@@ -255,10 +255,11 @@ ingress:
     pathType: Prefix
   console:
     enabled: true
-    ingressClassName: ""
+    ingressClassName: "nginx"  # Substitua "nginx" pela sua classe de Ingress, se necessário
     labels: { }
     annotations: { }
     host: minio-console.local
     path: /
     pathType: Prefix
+
 

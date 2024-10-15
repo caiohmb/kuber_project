@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: minio-pv-1
+  name: minio-pv
 spec:
   capacity:
     storage: 100Gi
@@ -9,3 +9,4 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /mnt/data/minio1
+  storageClassName: default  # Adicionando a StorageClass
