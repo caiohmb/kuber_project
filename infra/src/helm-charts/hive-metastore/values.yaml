@@ -12,6 +12,15 @@ mariadb:
 
 replicas: 1
 resources: {}
+
+persistence:
+  enabled: true
+  storageClass: default
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  path: /mnt/data/hive-metastore
+
 conf:
   hiveSite:
     hive_metastore_uris: thrift://hive-metastore:9083
