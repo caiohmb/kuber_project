@@ -9,18 +9,15 @@ mariadb:
     database: metastore
     rootPassword: root
     password: root
+  persistence:
+    enabled: true
+    storageClass: default
+    accessModes:
+      - ReadWriteOnce
+    size: 8Gi
 
 replicas: 1
 resources: {}
-
-persistence:
-  enabled: true
-  storageClass: default
-  accessModes:
-    - ReadWriteOnce
-  size: 10Gi
-
-
 conf:
   hiveSite:
     hive_metastore_uris: thrift://hive-metastore:9083
@@ -28,7 +25,7 @@ conf:
     fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
     fs.s3a.access.key: data-lake
     fs.s3a.secret.key: 12620ee6-2162-11ee-be56-0242ac120002
-    fs.s3a.endpoint: http://minio.deepstorage.svc.Cluster.local:80
+    fs.s3a.endpoint: http://minio.deepstorage.svc.cluster.local
     fs.s3a.path.style.access: true
     fs.s3a.connection.ssl.enabled: false
 
