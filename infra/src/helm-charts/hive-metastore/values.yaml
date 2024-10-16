@@ -19,7 +19,7 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 10Gi
-  path: /mnt/data/hive-metastore
+
 
 conf:
   hiveSite:
@@ -33,9 +33,3 @@ conf:
     fs.s3a.connection.ssl.enabled: false
 
 
-env:
-  - name: SECRET_KEY
-    valueFrom:
-      secretKeyRef:
-        name: hive-metastore-secret-key
-        key: password
