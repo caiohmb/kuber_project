@@ -23,9 +23,11 @@ kubectl patch svc argocd-server -n gitops -p '{"spec": {"type": "LoadBalancer"}}
 kubectl get svc argocd-server -n gitops
 kubectl -n gitops get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 
-Vm9rJPbRO2R52Yq1
+ch61bhTGXYtq12VM
 argocd login "" --username admin --password "" --insecure
 argocd cluster add ""
 
 kubectl apply -f git-repo-con.yaml -n gitops
-```
+
+argocd cluster add kind-kind --name kind-kind --in-clusterr
+

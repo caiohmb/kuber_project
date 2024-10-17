@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-hive-metastore-mariadb-0
+  namespace: metastore
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi  # Deve ser igual ou menor do que a capacidade do PV
+  storageClassName: default  # Deve corresponder à StorageClass do PV

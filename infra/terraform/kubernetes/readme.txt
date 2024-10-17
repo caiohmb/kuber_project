@@ -8,3 +8,5 @@ kubectl kustomize https://github.com/nginxinc/nginx-gateway-fabric/config/crd/ga
 # Install chart
 helm install ngf oci://ghcr.io/nginxinc/charts/nginx-gateway-fabric --create-namespace -n nginx-gateway
 
+# install ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml

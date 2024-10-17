@@ -13,7 +13,7 @@ spec:
       valueFiles:
         - values.yaml
   destination:
-      name: 'chmb-kuber'
+      name: 'kind-kind'
       namespace: warehouse
       server: ''
   syncPolicy:
