@@ -185,18 +185,24 @@ eventListenerProperties: {}
 
 additionalCatalogs:
    minio: |-
-    connector.name=hive
-    hive.metastore.uri=thrift://hive-metastore:9083
-    hive.s3.use-instance-credentials=false
-    hive.s3.aws-access-key=data-lake
-    hive.s3.aws-secret-key=12620ee6-2162-11ee-be56-0242ac120002
-    hive.s3.endpoint=http://minio.deepstorage.svc.cluster.local
-    hive.s3.path-style-access=true
-    hive.s3.ssl.enabled=false
-    hive.s3.max-connections=5000
-    hive.s3.multipart.min-file-size=5368709120 # 5GB em bytes
-    hive.s3.multipart.min-part-size=5368709120 # 5GB em bytes
-
+     connector.name=hive
+     hive.metastore=file
+     hive.s3-file-system-type=TRINO
+     hive.metastore.catalog.dir=s3://trino/
+     hive.allow-drop-table=true
+     hive.s3.aws-access-key=data-lake
+     hive.s3.aws-secret-key=12620ee6-2162-11ee-be56-0242ac120002
+     hive.s3.endpoint=http://minio.deepstorage.svc.Cluster.local
+     hive.s3.path-style-access=true
+     hive.s3.ssl.enabled=false
+     hive.allow-add-column=true
+     hive.allow-drop-column=true
+     hive.allow-drop-table=true
+     hive.allow-rename-table=true
+     hive.allow-rename-column=true
+     hive.s3.multipart.min-file-size=5GB
+     hive.s3.multipart.min-part-size=5GB
+     hive.s3.max-connections=5000
    iceberg: |-
      connector.name=iceberg
      hive.metastore.uri=thrift://hive-metastore.metastore.svc.Cluster.local:9083
