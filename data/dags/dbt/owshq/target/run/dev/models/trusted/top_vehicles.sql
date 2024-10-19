@@ -1,0 +1,33 @@
+
+  
+    
+
+    create table "iceberg"."landing"."top_vehicles__dbt_tmp"
+      
+      
+    as (
+      
+
+WITH transactions AS (
+
+    SELECT
+        *
+    FROM
+        "iceberg"."landing"."ride_transactions"
+)
+SELECT
+    trx.vehicle_name AS vehicle_name,
+    COUNT(*) AS total_rides
+FROM
+    transactions AS trx
+WHERE
+    trx.payment_country IS NOT NULL
+GROUP BY
+    trx.vehicle_name
+ORDER BY
+    total_rides DESC
+LIMIT
+    10
+    );
+
+  

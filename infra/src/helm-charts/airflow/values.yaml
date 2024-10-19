@@ -79,8 +79,8 @@ airflowVersion: "2.8.1"
 # Images
 images:
   airflow:
-    repository: owshq/owshq-apache-airflow
-    tag: 2.8.1
+    repository: caiohmb/caiohmb-apache-airflow
+    tag: latest
     # repository: ~
     # tag: ~ 
     # Specifying digest takes precedence over tag.
@@ -625,9 +625,9 @@ workers:
     # Enable persistent volumes
     enabled: true
     # Volume size for worker StatefulSet
-    size: 100Gi
+    size: 10Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName:
+    storageClassName: default
     # Execute init container to chown log directory.
     # This is currently only needed in kind, due to usage
     # of local-path provisioner.
@@ -1265,11 +1265,11 @@ webserver:
   defaultUser:
     enabled: true
     role: Admin
-    username: luanmoreno
-    email: luan.moreno@owshq.com
-    firstName: luan moreno
-    lastName: medeiros maciel
-    password: luanmoreno
+    username: admin
+    email: caioh.maiab@gmail.com
+    firstName: caio
+    lastName: brito
+    password: caiobrito
 
   # Launch additional containers into webserver.
   extraContainers: []
@@ -1307,7 +1307,7 @@ webserver:
   webserverConfigConfigMapName: ~
 
   service:
-    type: LoadBalancer
+    type: ClusterIP
     ## service annotations
     annotations: {}
     ports:
@@ -2449,7 +2449,7 @@ dags:
     # git repo clone url
     # ssh example: git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
-    repo: https://github.com/owshq-academy/ws-stack-dados-k8s.git
+    repo: https://github.com/caiohmb/kuber_project.git
     branch: master
     rev: HEAD
     # The git revision (branch, tag, or hash) to check out, v4 only

@@ -2,6 +2,10 @@ FROM apache/airflow:2.8.1
 
 USER root
 
+RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime && \
+    echo "UTC" > /etc/timezone
+
+
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   openjdk-17-jre-headless \
@@ -16,3 +20,4 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 COPY requirements.txt /
 
 RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
+
