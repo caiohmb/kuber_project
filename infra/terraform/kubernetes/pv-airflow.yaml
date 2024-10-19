@@ -4,7 +4,7 @@ metadata:
   name: airflow-pv
 spec:
   capacity:
-    storage: 15Gi
+    storage: 50Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
