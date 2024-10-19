@@ -423,14 +423,6 @@ data:
   # Note: brokerUrl can only be set during install, not upgrade
   brokerUrl: ~
 
-  initContainers:
-    - name: init-permissions
-      image: busybox
-      command: ['sh', '-c', 'chown -R 1001:1001 /bitnami/postgresql/data']
-      volumeMounts:
-        - name: postgresql-data
-          mountPath: /bitnami/postgresql/data
-
 # Fernet key settings
 # Note: fernetKey can only be set during install, not upgrade
 
