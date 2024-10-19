@@ -624,11 +624,11 @@ workers:
 
   persistence:
     # Enable persistent volumes
-    enabled: true
+    enabled: false
     # Volume size for worker StatefulSet
-    size: 1Gi
+    size: 20Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: default
+    storageClassName: 
     # Execute init container to chown log directory.
     # This is currently only needed in kind, due to usage
     # of local-path provisioner.
@@ -1431,11 +1431,11 @@ triggerer:
 
   persistence:
     # Enable persistent volumes
-    enabled: true
+    enabled: false
     # Volume size for triggerer StatefulSet
-    size: 1Gi
+    size: 20Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: default
+    storageClassName:
     # Execute init container to chown log directory.
     # This is currently only needed in kind, due to usage
     # of local-path provisioner.
@@ -2133,11 +2133,11 @@ redis:
 
   persistence:
     # Enable persistent volumes
-    enabled: true
+    enabled: false
     # Volume size for worker StatefulSet
-    size: 1Gi
+    size: 20Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: default
+    storageClassName: 
     # Annotations to add to redis volumes
     annotations: {}
 
@@ -2435,9 +2435,9 @@ dags:
     # Enable persistent volume for storing dags
     enabled: false
     # Volume size for dags
-    size: 1Gi
+    size: 20Gi
     # If using a custom storageClass, pass name here
-    storageClassName: default
+    storageClassName: 
     # access mode of the persistent volume
     accessMode: ReadWriteOnce
     ## the name of an existing PVC to use
@@ -2540,10 +2540,10 @@ logs:
     # Enable persistent volume for storing logs
     enabled: false
     # Volume size for logs
-    size: 1Gi
+    size: 20Gi
     # Annotations for the logs PVC
     annotations: {}
     # If using a custom storageClass, pass name here
-    storageClassName: default
+    storageClassName: 
     ## the name of an existing PVC to use
     existingClaim:
