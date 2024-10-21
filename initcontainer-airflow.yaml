@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fix-postgres-permissions
+  namespace: orchestrator
+spec:
+  template:
+    spec:
+      containers:
+        - name: fix-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1001:1001 /bitnami/postgresql/data"]
+          volumeMounts:
+            - name: postgresql-data
+              mountPath: /bitnami/postgresql/data
+      restartPolicy: OnFailure
+      volumes:
+        - name: postgresql-data
+          persistentVolumeClaim:
+            claimName: data-airflow-postgresql-0
