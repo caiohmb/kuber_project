@@ -624,7 +624,7 @@ workers:
 
   persistence:
     # Enable persistent volumes
-    enabled: false
+    enabled: true
     # Volume size for worker StatefulSet
     size: 20Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
@@ -1431,7 +1431,7 @@ triggerer:
 
   persistence:
     # Enable persistent volumes
-    enabled: false
+    enabled: true
     # Volume size for triggerer StatefulSet
     size: 20Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
@@ -2133,9 +2133,9 @@ redis:
 
   persistence:
     # Enable persistent volumes
-    enabled: false
+    enabled: true
     # Volume size for worker StatefulSet
-    size: 20Gi
+    size: 1Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
     storageClassName: 
     # Annotations to add to redis volumes
@@ -2435,7 +2435,7 @@ dags:
     # Enable persistent volume for storing dags
     enabled: false
     # Volume size for dags
-    size: 20Gi
+    size: 1Gi
     # If using a custom storageClass, pass name here
     storageClassName: 
     # access mode of the persistent volume
@@ -2451,17 +2451,17 @@ dags:
     # ssh example: git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
     repo: https://github.com/caiohmb/kuber_project.git
-    branch: master
+    branch: main
     rev: HEAD
     # The git revision (branch, tag, or hash) to check out, v4 only
-    ref: master
+    ref: main
     depth: 1
     # the number of consecutive failures allowed before aborting
     maxFailures: 0
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
     subPath: "data/dags"
-    credentialsSecret: git-credentials
+    credentialsSecret: ""
     #
     #
     # If you are using an ssh clone url, you can load
@@ -2538,7 +2538,7 @@ logs:
 
   persistence:
     # Enable persistent volume for storing logs
-    enabled: false
+    enabled: true
     # Volume size for logs
     size: 20Gi
     # Annotations for the logs PVC
