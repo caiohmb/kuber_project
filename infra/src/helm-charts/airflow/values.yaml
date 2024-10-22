@@ -499,7 +499,7 @@ kerberos:
 # Airflow Worker Config
 workers:
   # Number of airflow celery workers in StatefulSet
-  replicas: 3
+  replicas: 2
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
@@ -1269,7 +1269,7 @@ webserver:
     enabled: true
     role: Admin
     username: caio
-    email: caioh.maiab@gmail.com
+    email: blackcuringa@gmail.com
     firstName: caio
     lastName: brito
     password: caio
