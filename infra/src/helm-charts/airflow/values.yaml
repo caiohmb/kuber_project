@@ -2461,7 +2461,7 @@ dags:
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
     subPath: "data/dags"
-    credentialsSecret: ""
+    credentialsSecret: git-credentials
     #
     #
     # If you are using an ssh clone url, you can load
