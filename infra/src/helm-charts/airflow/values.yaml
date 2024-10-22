@@ -161,7 +161,8 @@ ingress:
     host: ""
 
     # The hostnames or hosts configuration for the web Ingress
-    hosts: airflow.local
+    hosts: 
+      - host: airflow.localairflow.local
     #   # The hostname for the web Ingress (can be templated)
     # - name: ""
     #   # configs for web Ingress TLS
