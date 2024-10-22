@@ -139,7 +139,7 @@ labels: {}
 # Ingress configuration
 ingress:
   # Enable all ingress resources (deprecated - use ingress.web.enabled and ingress.flower.enabled)
-  enabled: true
+  enabled: ~
 
   # Configs for the Ingress of the web Service
   web:
@@ -161,8 +161,9 @@ ingress:
     host: ""
 
     # The hostnames or hosts configuration for the web Ingress
-    hosts: 
-      - name: "airflow.local"
+    hosts: airflow.local
+    #   # The hostname for the web Ingress (can be templated)
+    # - name: ""
     #   # configs for web Ingress TLS
     #   tls:
     #     # Enable TLS termination for the web Ingress
@@ -626,9 +627,9 @@ workers:
     # Enable persistent volumes
     enabled: true
     # Volume size for worker StatefulSet
-    size: 20Gi
+    size: 100Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: 
+    storageClassName:
     # Execute init container to chown log directory.
     # This is currently only needed in kind, due to usage
     # of local-path provisioner.
@@ -1266,11 +1267,11 @@ webserver:
   defaultUser:
     enabled: true
     role: Admin
-    username: admin
+    username: caio
     email: caioh.maiab@gmail.com
     firstName: caio
     lastName: brito
-    password: caiobrito
+    password: caio
 
   # Launch additional containers into webserver.
   extraContainers: []
@@ -1433,7 +1434,7 @@ triggerer:
     # Enable persistent volumes
     enabled: true
     # Volume size for triggerer StatefulSet
-    size: 20Gi
+    size: 100Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
     storageClassName:
     # Execute init container to chown log directory.
@@ -2137,7 +2138,7 @@ redis:
     # Volume size for worker StatefulSet
     size: 1Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: 
+    storageClassName:
     # Annotations to add to redis volumes
     annotations: {}
 
@@ -2437,7 +2438,7 @@ dags:
     # Volume size for dags
     size: 1Gi
     # If using a custom storageClass, pass name here
-    storageClassName: 
+    storageClassName:
     # access mode of the persistent volume
     accessMode: ReadWriteOnce
     ## the name of an existing PVC to use
@@ -2451,10 +2452,10 @@ dags:
     # ssh example: git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
     repo: https://github.com/caiohmb/kuber_project.git
-    branch: main
+    branch: master
     rev: HEAD
     # The git revision (branch, tag, or hash) to check out, v4 only
-    ref: main
+    ref: master
     depth: 1
     # the number of consecutive failures allowed before aborting
     maxFailures: 0
@@ -2538,12 +2539,12 @@ logs:
 
   persistence:
     # Enable persistent volume for storing logs
-    enabled: true
+    enabled: false
     # Volume size for logs
-    size: 20Gi
+    size: 100Gi
     # Annotations for the logs PVC
     annotations: {}
     # If using a custom storageClass, pass name here
-    storageClassName: 
+    storageClassName:
     ## the name of an existing PVC to use
     existingClaim:
