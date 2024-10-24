@@ -433,7 +433,7 @@ data:
 # print(key.decode())
 # fernetKey: t5u8Dst5tkt1F5fwsxnfEwGfytY3Ry5KrP02B32mPxY=
 fernetKey: t5u8Dst5tkt1F5fwsxnfEwGfytY3Ry5KrP02B32mPxY=
-fernetKeySecretName: orchestrator
+fernetKeySecretName: ~
 
 # Flask secret key for Airflow Webserver: `[webserver] secret_key` in airflow.cfg
 webserverSecretKey: 289199280de8afee5d0ef80418dbb52a
