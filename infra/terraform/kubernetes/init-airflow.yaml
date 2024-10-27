@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fix-triggerer-logs-permissions
+  namespace: orchestrator
+spec:
+  template:
+    spec:
+      containers:
+        - name: fix-permissions
+          image: busybox
+          command: ["sh", "-c", "mkdir -p /opt/airflow/logs/scheduler && chown -R airflow:airflow /opt/airflow/logs"]
+          volumeMounts:
+            - name: airflow-logs
+              mountPath: /opt/airflow/logs
+      restartPolicy: OnFailure
+      volumes:
+        - name: airflow-logs
+          persistentVolumeClaim:
+            claimName: airflow-logs
